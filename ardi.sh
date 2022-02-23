@@ -14,25 +14,7 @@ echo root:password | chpasswd
 pacman -Syy
 
 
-pacman -S grub grub-btrfs btrfs-progs efibootmgr os-prober
-
-pacnan -S networkmanager network-manager-applet dialog base-devel
-
-pacman -S wpa_supplicant mtools dosfstools reflector 
-
-pacman -S linux-headers avahi xdg-user-dirs pulseaudio
-
-pacman -S xdg-utils gvfs gvfs-smb bluez bluez-utils cups alsa-utils pipewire pipewire-alsa pipewire-pulse 
-
-pacman -S bash-completion openssh rsync ipset samba 
-
-pacman -S flatpak ntfs-3g xorg sddm plasma 
-
-pacman -S kde-applications kdenetwork-filesharing 
-
-pacman -S cifs-utils powerdevil kdepim kde-gtk-config breeze-gtk packagekit-qt5 wireless_tools
-
-pacman -S nvidia nvidia-utils nvidia-settings
+pacman -S grub grub-btrfs btrfs-progs efibootmgr os-prober networkmanager network-manager-applet dialog base-devel wpa_supplicant mtools dosfstools reflector linux-headers avahi xdg-user-dirs pulseaudio xdg-utils gvfs gvfs-smb bluez bluez-utils cups alsa-utils pipewire pipewire-alsa pipewire-pulse bash-completion openssh rsync ipset samba flatpak ntfs-3g xorg sddm plasma kde-applications kdenetwork-filesharing cifs-utils powerdevil kde-gtk-config breeze-gtk packagekit-qt5 wireless_tools nvidia nvidia-utils nvidia-settings
 
 grub-install --target=x86_64-efi --efi-directory=/boot/ --bootloader-id=GRUB
 
