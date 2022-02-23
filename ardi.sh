@@ -14,7 +14,7 @@ echo root:password | chpasswd
 pacman -Syy
 
 
-pacman -S grub grub-btrfs btrfs-progs efibootmgr 
+pacman -S grub grub-btrfs btrfs-progs efibootmgr os-prober
 
 pacnan -S networkmanager network-manager-applet dialog base-devel
 
@@ -26,7 +26,7 @@ pacman -S xdg-utils gvfs gvfs-smb bluez bluez-utils cups alsa-utils pipewire pip
 
 pacman -S bash-completion openssh rsync ipset samba 
 
-pacman -S flatpak os-prober ntfs-3g xorg sddm plasma 
+pacman -S flatpak ntfs-3g xorg sddm plasma 
 
 pacman -S kde-applications kdenetwork-filesharing 
 
@@ -43,11 +43,9 @@ systemctl enable bluetooth
 systemctl enable cups.service
 systemctl enable sshd
 systemctl enable avahi-daemon
-# systemctl enable tlp # You can comment this command out if you didn't install tlp, see above
 systemctl enable reflector.timer
 systemctl enable fstrim.timer
 systemctl enable libvirtd
-systemctl enable firewalld
 systemctl enable acpid
 systemctl enable sddm
 
@@ -57,5 +55,12 @@ echo ardi:password | chpasswd
 
 echo "ardi ALL=(ALL) ALL" >> /etc/sudoers.d/ardi
 
+nano /etc/default/grub
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+nano /etc/mkinitcpio.conf
+
+mkinitcpio -p linux
 
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
