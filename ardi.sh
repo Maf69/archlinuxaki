@@ -30,6 +30,7 @@ systemctl enable fstrim.timer
 systemctl enable libvirtd
 systemctl enable acpid
 systemctl enable sddm
+systemctl enable cronie.service
 
 useradd -mG wheel ardi
 echo ardi:password | chpasswd
